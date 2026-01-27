@@ -1,4 +1,4 @@
-# 🏥 Sistema de Agendamento para Clínica / Consultório
+# 🏥 Sistema de Agendamento para Clínica MedFlow
 
 Projeto desenvolvido com **PHP + PDO + MySQL**, focado em praticar backend, organização de código e regras reais de negócio. O sistema permite que pacientes realizem **agendamentos online** e que o profissional/admin gerencie a agenda de forma simples e segura.
 
