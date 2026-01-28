@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Login MedFlow - Bootstrap</title>
+    <title>Login MedFlow</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
         rel="stylesheet" />
@@ -57,7 +57,7 @@
                     <div class="card-footer bg-transparent border-top border-secondary text-center py-3">
                         <p class="mb-0 footer-text">
                             Não tem uma conta?
-                            <a class="link-teal" href="#">Entre em contato com o administrador</a>
+                            <a class="link-teal" href="cadastrar.php">Criar uma conta</a>
                         </p>
                     </div>
                 </div>
