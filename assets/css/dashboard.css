@@ -1,0 +1,118 @@
+:root {
+  --bg-main: #1a1d20;
+  --bg-card: #212529;
+  --medflow-teal: #008080;
+  --medflow-teal-muted: #004d4d;
+  --medflow-teal-light: #009dae;
+  --medflow-lime: #a7d129;
+  --text-main: #e9ecef;
+  --text-muted: #adb5bd;
+  --sidebar-width: 260px;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #14171a;
+  color: white;
+  z-index: 1000;
+  padding-top: 1.5rem;
+  border-right: 1px solid var(--border-color);
+}
+.sidebar-logo {
+  padding: 0 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+.sidebar .nav-link:hover {
+  color: var(--medflow-teal-light);
+  background-color: rgba(0, 157, 174, 0.05);
+}
+.sidebar .nav-link.active {
+  color: white;
+  background-color: rgba(0, 157, 174, 0.15);
+  border-left: 4px solid var(--medflow-teal-light);
+}
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 2.5rem;
+  min-height: 100vh;
+}
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  color: var(--text-main);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.card-kpi {
+  transition: transform 0.2s;
+}
+.card-kpi:hover {
+  transform: translateY(-4px);
+}
+.text-lime {
+  color: var(--medflow-lime) !important;
+}
+.text-teal {
+  color: var(--medflow-teal-light) !important;
+}
+.table {
+  color: var(--text-main);
+}
+.table thead th {
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: transparent;
+}
+.table td {
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+.btn-primary {
+  background-color: var(--medflow-teal-light);
+  border-color: var(--medflow-teal-light);
+  padding: 0.6rem 1.2rem;
+}
+.btn-primary:hover {
+  background-color: var(--medflow-teal);
+  border-color: var(--medflow-teal);
+}
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+.badge {
+  font-weight: 600;
+  padding: 0.5em 1em;
+}
+.chart-container {
+  position: relative;
+  height: 250px;
+  width: 100%;
+}
