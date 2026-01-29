@@ -36,7 +36,7 @@ if ($usuario) {
     if ($usuario['tipo'] === 'medico') {
         header("Location: dashboard.php");
     } else {
-        header("Location: ../paciente/dashboard.php");
+        header("Location: ../public/dashboard_paciente.php");
     }
 
     exit;
