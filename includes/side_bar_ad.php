@@ -4,32 +4,33 @@
     <div class="d-flex align-items-center mb-5">
         <img src="../assets/img/logo-sem-fundo.png" width="48" class="me-2">
         <div>
-            <h4 class="mb-0 fw-bold">MedFlow</h4>
+            <h4 class="mb-0 fw-bold fs-4">MedFlow</h4>
             <small class="text-uppercase text-soft fw-bold" style="font-size: 10px; letter-spacing: 1px;">
-                Portal do Paciente
+                Portal do Medico
             </small>
         </div>
     </div>
 
     <nav class="nav nav-pills flex-column mb-auto">
         <a class="nav-link active" href="#">
-            <span class="material-symbols-outlined">home</span> Início
+            <span class="material-symbols-outlined">dashboard</span> Painel geral
         </a>
 
         <a class="nav-link" href="minhas_consultas.php">
-            <span class="material-symbols-outlined">calendar_month</span> Minhas Consultas
+            <span class="material-symbols-outlined">calendar_month</span> Agenda
         </a>
 
         <a class="nav-link" href="#">
-            <span class="material-symbols-outlined">description</span> Prontuário
+            <span class="material-symbols-outlined">group</span> Pacientes
         </a>
 
         <a class="nav-link" href="#">
-            <span class="material-symbols-outlined">lab_panel</span> Exames
+            <span class="material-symbols-outlined">monitoring</span> Relatórios
         </a>
 
         <a class="nav-link" href="#">
-            <span class="material-symbols-outlined">person</span> Perfil
+            <span class="material-symbols-outlined">settings</span> Configurações
+
         </a>
     </nav>
 
@@ -42,7 +43,8 @@
         </div>
     </div>
 
-    <ul class="nav flex-column mt-3">
+    <hr class="my-3" style="border-color: var(--medflow-border);" />
+    <ul class="nav flex-column">
         <li class="nav-item">
             <a class="nav-link text-danger" href="#">
                 <span class="material-symbols-outlined">logout</span>

@@ -18,62 +18,9 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <div class="sidebar-logo d-flex align-items-center justify-content-around flex-row">
-            <div class="brand-logo d-flex align-items-center justify-content-center gap-2">
-                <img src="../assets/img/logo-sem-fundo.png" alt="Logo MedFlow" class="logo-img" width="40px">
-                <span class="fs-4 fw-bold text-white tracking-tight">MedFlow</span>
-            </div>
-        </div>
 
-        <nav class="nav flex-column sidebar-nav">
-            <a class="nav-link active" href="#">
-                <span class="material-symbols-outlined">dashboard</span>
-                <span>Painel Geral</span>
-            </a>
+    <?php require_once '../includes/side_bar_ad.php' ?>
 
-            <a class="nav-link" href="#">
-                <span class="material-symbols-outlined">calendar_month</span>
-                <span>Agenda</span>
-            </a>
-
-            <a class="nav-link" href="#">
-                <span class="material-symbols-outlined">group</span>
-                <span>Pacientes</span>
-            </a>
-
-            <a class="nav-link" href="#">
-                <span class="material-symbols-outlined">payments</span>
-                <span>Faturamento</span>
-            </a>
-
-            <a class="nav-link" href="#">
-                <span class="material-symbols-outlined">monitoring</span>
-                <span>Relatórios</span>
-            </a>
-
-            <a class="nav-link" href="#">
-                <span class="material-symbols-outlined">settings</span>
-                <span>Configurações</span>
-            </a>
-        </nav>
-    </div>
-
-    <div class="mt-auto p-4 w-100" style="position: absolute; bottom: 0;">
-        <div
-            class="d-flex align-items-center gap-3 bg-white bg-opacity-5 p-3 rounded-3 border border-white border-opacity-5">
-            <div class="rounded-circle overflow-hidden border border-white border-opacity-10"
-                style="width: 40px; height: 40px;">
-                <img alt="Avatar" class="img-fluid"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuClcaE_tzeaZ2E84Ua5VF0juK_pytO7i44Ma-3mLq7eqicoz_QVrbGQIEbb6YBtY3oaE5L8Syh8Mnmf0Ul2e9WZihilDR1LaPG58NBXA7gR71d3jklZT_cTKeemnyq_TPsW5WCyuiS-8wolaxt7PJGfMcYEwVK2fE09S9lcyoORaHnU2zXxpYvmQHy4-QRWriX5CcO9BfiCynxQwKXwSYnzAMpFGd8oQ1rq6-IUb9WbxdS_0T1jPD8AxXPZk5ZX2kfbVeaEBSAI0Ec" />
-            </div>
-            <div>
-                <div class="small fw-bold text-white">Dr. Miller</div>
-                <div class="small text-muted" style="font-size: 0.7rem;">Administrador</div>
-            </div>
-        </div>
-    </div>
-    </div>
     <main class="main-content">
         <header class="d-flex justify-content-between align-items-center mb-5">
             <div>

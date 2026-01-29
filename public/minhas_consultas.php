@@ -185,15 +185,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <hr class="my-4" style="border-color: var(--medflow-border);" />
-                        <ul class="nav flex-column mb-4">
-                            <li class="nav-item">
-                                <a class="nav-link text-danger" href="#">
-                                    <span class="material-symbols-outlined">logout</span>
-                                    Sair
-                                </a>
-                            </li>
-                        </ul>
+                       
                     </div>
                 </div>
             </nav>
