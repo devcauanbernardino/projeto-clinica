@@ -9,8 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
 
     <link rel="stylesheet" href="../assets/css/admin-login.css" />
@@ -39,7 +38,8 @@
 
                             <div class="mb-3">
                                 <label class="form-label small fw-bold">Nome completo</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Seu nome completo" required>
+                                <input type="text" name="nome" class="form-control" placeholder="Seu nome completo"
+                                    required>
                             </div>
 
                             <div class="mb-3">
@@ -50,7 +50,8 @@
 
                             <div class="mb-3">
                                 <label class="form-label small fw-bold">Senha</label>
-                                <input type="password" name="senha" class="form-control" placeholder="Crie uma senha" required>
+                                <input type="password" name="senha" class="form-control" placeholder="Crie uma senha"
+                                    required>
                             </div>
 
                             <div class="mb-3">
@@ -58,6 +59,25 @@
                                 <input type="password" name="confirmar_senha" class="form-control"
                                     placeholder="Repita a senha" required>
                             </div>
+
+                            <?php
+
+                            $mensagens = [
+                                'preenchacampos' => ['tipo' => 'warning', 'msg' => 'Preencha todos os campos.'],
+                                'emailinvalido' => ['tipo' => 'danger', 'msg' => 'Digite um e-mail válido.'],
+                                'naocoincidem' => ['tipo' => 'danger', 'msg' => 'As senhas não coincidem.'],
+                                'emailexiste' => ['tipo' => 'danger', 'msg' => 'Este e-mail já está cadastrado.'],
+                                'erro' => ['tipo' => 'danger', 'msg' => 'Erro ao criar conta.']
+                            ];
+
+                            if (isset($_GET['cadastro']) && isset($mensagens[$_GET['cadastro']])) {
+
+                                $alerta = $mensagens[$_GET['cadastro']];
+
+                                echo "<div class='alert alert-{$alerta['tipo']}'>{$alerta['msg']}</div>";
+                            }
+                            ?>
+
 
                             <div class="mb-4">
                                 <label class="form-label small fw-bold">Tipo de conta</label>

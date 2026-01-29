@@ -27,19 +27,42 @@
                     <h2 class="fw-extrabold mb-1">MedFlow</h2>
                     <h5 class="text-secondary fw-normal">Bem-vindo de volta</h5>
                 </div>
+                <?php
+                if (isset($_GET['cadastro'])) {
+
+                    if ($_GET['cadastro'] == 'sucesso') {
+                        echo "<div class='alert alert-success'>
+                Conta criada com sucesso! Faça seu login.
+              </div>";
+                    }
+
+                }
+                ?>
+                <?php
+                if (isset($_GET['login'])) {
+
+                    if ($_GET['login'] === 'erro') {
+                        echo "<div class='alert alert-danger'>Email ou senha inválidos.</div>";
+                    }
+
+                    if ($_GET['login'] === 'campos') {
+                        echo "<div class='alert alert-warning'>Preencha todos os campos.</div>";
+                    }
+                }
+                ?>
                 <div class="card bg-dark text-light login-card">
                     <div class="card-body p-4 p-md-5">
-                        <form>
+                        <form action="processa_login.php" method="post">
                             <div class="mb-4">
                                 <label class="form-label small fw-bold" for="email">E-mail</label>
                                 <input class="form-control" id="email" placeholder="exemplo@medflow.com.br" required=""
-                                    type="email" />
+                                    type="email" name="email"/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label small fw-bold" for="senha">Senha</label>
                                 <div class="input-group">
                                     <input class="form-control" id="senha" placeholder="Sua senha" required=""
-                                        type="password" />
+                                        type="password" name="senha"/>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-4">
