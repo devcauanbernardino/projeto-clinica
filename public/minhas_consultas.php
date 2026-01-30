@@ -11,6 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/sidebar.css" />
+    <link rel="shortcut icon" href="../assets/img/logo-sem-fundo.png" type="image/x-icon">
     <style>
         body {
             background-color: #1a1d20;
@@ -23,12 +25,6 @@
             --medflow-teal: #13ecc8;
             --medflow-sidebar: #111417;
             --medflow-border: #2d3238;
-        }
-
-        .sidebar {
-            background-color: var(--medflow-sidebar);
-            border-right: 1px solid var(--medflow-border);
-            min-height: 100vh;
         }
 
         .nav-link {
@@ -46,31 +42,16 @@
             background-color: rgba(19, 236, 200, 0.05);
         }
 
-        .nav-link.active {
-            color: #1a1d20;
-            background-color: var(--medflow-teal) !important;
-            font-weight: 600;
-        }
 
         .btn-primary-medflow {
             background-color: var(--medflow-teal);
             border-color: var(--medflow-teal);
-            color: #1a1d20;
             font-weight: 700;
         }
 
         .btn-primary-medflow:hover {
             background-color: #0fd6b5;
             border-color: #0fd6b5;
-            color: #1a1d20;
-        }
-
-        .text-teal {
-            color: var(--medflow-teal);
-        }
-
-        .breadcrumb-item+.breadcrumb-item::before {
-            color: #495057;
         }
 
         .nav-tabs {
@@ -115,91 +96,25 @@
             border-color: var(--medflow-border);
             color: #9db9b4;
         }
-
-        .pagination .page-item.active .page-link {
-            background-color: var(--medflow-teal);
-            border-color: var(--medflow-teal);
-            color: #1a1d20;
-        }
-
-        .logo-container {
-            padding: 24px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHUhuqGTSmgjOGJre-DkLGrnPu81up0GR_7rQYCDUdCTAAgAzsM0ZaNK3k7_5qCYoZ4Ufs43YioSIbTMYaHL1srCxJ4Pv3CkEzuoV7IWhpjCZNV-yTjxkSvEjkr9UdeDuHhiVeiExwxQMXh7yyFpH0StCQN22z2BDF9Nof4pI-ZMfb-O6btTVEPFOHtG4Di-_L8W0Z4np01p0VBWhWI7Xnkafa84J2G93FSsnQjPRMJHanu_fJr3YE4ybiPqe3lhl8JlstIWUqDaE');
-            background-size: cover;
-            background-position: center;
-        }
     </style>
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse p-0 sticky-top">
-                <div class="position-sticky">
-                    <div class="logo-container">
-                        <div class="logo-img"></div>
-                        <div>
-                            <h5 class="m-0 fw-bold">MedFlow</h5>
-                            <small class="text-muted">Portal do Paciente</small>
-                        </div>
-                    </div>
-                    <div class="px-3">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="material-symbols-outlined">dashboard</span>
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">
-                                    <span class="material-symbols-outlined">calendar_month</span>
-                                    Minhas Consultas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="material-symbols-outlined">person_search</span>
-                                    Médicos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="material-symbols-outlined">account_circle</span>
-                                    Meu Perfil
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="material-symbols-outlined">settings</span>
-                                    Configurações
-                                </a>
-                            </li>
-                        </ul>
-                       
-                    </div>
-                </div>
-            </nav>
+            <?php require_once '../includes/side_bar_p.php' ?>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-5 py-4">
                 <nav aria-label="breadcrumb" class="mb-4">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-decoration-none text-muted" href="#">Início</a></li>
+                        <li class="breadcrumb-item"><a class="text-decoration-none" href="#">Início</a></li>
                         <li aria-current="page" class="breadcrumb-item active text-white">Consultas</li>
                     </ol>
                 </nav>
                 <div class="d-flex justify-content-between align-items-end mb-5">
                     <div>
                         <h1 class="fw-black display-5 mb-2">Minhas Consultas</h1>
-                        <p class="text-muted mb-0">Gerencie seus agendamentos e histórico médico em um só lugar.</p>
+                        <p class="mb-0">Gerencie seus agendamentos e histórico médico em um só lugar.</p>
                     </div>
                     <button class="btn btn-primary-medflow px-4 py-2">
                         <span class="material-symbols-outlined me-1">add_circle</span>
@@ -224,13 +139,13 @@
                                     <th class="px-4 py-3 fw-semibold text-white">Médico</th>
                                     <th class="px-4 py-3 fw-semibold text-white">Especialidade</th>
                                     <th class="px-4 py-3 fw-semibold text-white">Status</th>
-                                    <th class="px-4 py-3 fw-semibold text-muted text-end">Ações</th>
+                                    <th class="px-4 py-3 fw-semibold text-end">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="px-4 py-4 text-muted">15/11/2023</td>
-                                    <td class="px-4 py-4 text-muted">14:30</td>
+                                    <td class="px-4 py-4">15/11/2023</td>
+                                    <td class="px-4 py-4">14:30</td>
                                     <td class="px-4 py-4">
                                         <div class="d-flex align-items-center">
                                             <div class="bg-dark border border-secondary rounded-circle d-flex align-items-center justify-content-center me-2"
@@ -256,8 +171,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-4 text-muted">10/11/2023</td>
-                                    <td class="px-4 py-4 text-muted">09:00</td>
+                                    <td class="px-4 py-4">10/11/2023</td>
+                                    <td class="px-4 py-4">09:00</td>
                                     <td class="px-4 py-4">
                                         <div class="d-flex align-items-center">
                                             <div class="bg-dark border border-secondary rounded-circle d-flex align-items-center justify-content-center me-2"
@@ -281,8 +196,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-4 text-muted">05/11/2023</td>
-                                    <td class="px-4 py-4 text-muted">16:15</td>
+                                    <td class="px-4 py-4">05/11/2023</td>
+                                    <td class="px-4 py-4">16:15</td>
                                     <td class="px-4 py-4">
                                         <div class="d-flex align-items-center">
                                             <div class="bg-dark border border-secondary rounded-circle d-flex align-items-center justify-content-center me-2"
@@ -310,7 +225,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center px-4 py-3 bg-dark bg-opacity-25 border-top"
                         style="border-color: var(--medflow-border) !important;">
-                        <div class="text-muted small">Exibindo 3 de 24 consultas</div>
+                        <div class="small">Exibindo 3 de 24 consultas</div>
                         <nav aria-label="Navegação de página">
                             <ul class="pagination pagination-sm m-0">
                                 <li class="page-item disabled"><a class="page-link" href="#"><span
@@ -331,7 +246,7 @@
                                 <span class="material-symbols-outlined text-teal">notifications_active</span>
                                 <h6 class="m-0 fw-bold">Lembrete</h6>
                             </div>
-                            <p class="small text-muted mb-0">Você tem uma consulta agendada para daqui a 3 dias com o
+                            <p class="small mb-0">Você tem uma consulta agendada para daqui a 3 dias com o
                                 Dr. Ricardo.</p>
                         </div>
                     </div>
@@ -341,7 +256,7 @@
                                 <span class="material-symbols-outlined text-teal">description</span>
                                 <h6 class="m-0 fw-bold">Exames Pendentes</h6>
                             </div>
-                            <p class="small text-muted mb-0">Há 2 resultados de exames prontos para visualização em seu
+                            <p class="small mb-0">Há 2 resultados de exames prontos para visualização em seu
                                 perfil.</p>
                         </div>
                     </div>
@@ -352,20 +267,20 @@
                                 <span class="material-symbols-outlined text-teal">support_agent</span>
                                 <h6 class="m-0 fw-bold text-teal">Precisa de ajuda?</h6>
                             </div>
-                            <p class="small text-muted mb-0">Nossa central de atendimento está disponível 24h para
+                            <p class="small mb-0">Nossa central de atendimento está disponível 24h para
                                 reagendamentos.</p>
                         </div>
                     </div>
                 </div>
                 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
                     style="border-color: var(--medflow-border) !important;">
-                    <p class="col-md-4 mb-0 text-muted small">© 2023 MedFlow - Gestão Hospitalar</p>
+                    <p class="col-md-4 mb-0">© 2026 MedFlow - Gestão Hospitalar</p>
                     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                        <li class="ms-3"><a class="text-muted small text-decoration-none hover-teal" href="#">Termos</a>
+                        <li class="ms-3"><a class="small text-decoration-none hover-teal" href="#">Termos</a>
                         </li>
-                        <li class="ms-3"><a class="text-muted small text-decoration-none hover-teal"
+                        <li class="ms-3"><a class="small text-decoration-none hover-teal"
                                 href="#">Privacidade</a></li>
-                        <li class="ms-3"><a class="text-muted small text-decoration-none hover-teal"
+                        <li class="ms-3"><a class="small text-decoration-none hover-teal"
                                 href="#">Suporte</a></li>
                     </ul>
                 </footer>
