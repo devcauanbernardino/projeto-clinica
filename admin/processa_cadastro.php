@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if ($senha !== $confirmar) {
-        header("Location: cadastrar.php?cadastro=senhasdiferentes");
+        header("Location: cadastrar.php?cadastro=naocoincidem");
         exit;
     }
 
