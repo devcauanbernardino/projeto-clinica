@@ -11,7 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/sidebar.css" />
+    <link rel="stylesheet" href="../assets/css/sidebar_p.css" />
     <link rel="shortcut icon" href="../assets/img/logo-sem-fundo.png" type="image/x-icon">
     <style>
         body {
@@ -19,82 +19,6 @@
             color: #f8f9fa;
             font-family: 'Manrope', sans-serif;
             min-height: 100vh;
-        }
-
-        :root {
-            --medflow-teal: #13ecc8;
-            --medflow-sidebar: #111417;
-            --medflow-border: #2d3238;
-        }
-
-        .nav-link {
-            color: #9db9b4;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin-bottom: 4px;
-        }
-
-        .nav-link:hover {
-            color: var(--medflow-teal);
-            background-color: rgba(19, 236, 200, 0.05);
-        }
-
-
-        .btn-primary-medflow {
-            background-color: var(--medflow-teal);
-            border-color: var(--medflow-teal);
-            font-weight: 700;
-        }
-
-        .btn-primary-medflow:hover {
-            background-color: #0fd6b5;
-            border-color: #0fd6b5;
-        }
-
-        .nav-tabs {
-            border-bottom: 1px solid var(--medflow-border);
-        }
-
-        .nav-tabs .nav-link {
-            border: none;
-            color: #9db9b4;
-            background: transparent;
-            padding: 1rem 1.5rem;
-            margin-bottom: 0;
-        }
-
-        .nav-tabs .nav-link.active {
-            color: var(--medflow-teal);
-            background: transparent;
-            border-bottom: 3px solid var(--medflow-teal);
-            border-radius: 0;
-        }
-
-        .table-container {
-            background-color: var(--medflow-sidebar);
-            border: 1px solid var(--medflow-border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .material-symbols-outlined {
-            font-size: 20px;
-            vertical-align: middle;
-        }
-
-        .card-custom {
-            background-color: var(--medflow-sidebar);
-            border: 1px solid var(--medflow-border);
-            border-radius: 12px;
-        }
-
-        .pagination .page-link {
-            background-color: transparent;
-            border-color: var(--medflow-border);
-            color: #9db9b4;
         }
     </style>
 </head>
@@ -278,15 +202,14 @@
                     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                         <li class="ms-3"><a class="small text-decoration-none hover-teal" href="#">Termos</a>
                         </li>
-                        <li class="ms-3"><a class="small text-decoration-none hover-teal"
-                                href="#">Privacidade</a></li>
-                        <li class="ms-3"><a class="small text-decoration-none hover-teal"
-                                href="#">Suporte</a></li>
+                        <li class="ms-3"><a class="small text-decoration-none hover-teal" href="#">Privacidade</a></li>
+                        <li class="ms-3"><a class="small text-decoration-none hover-teal" href="#">Suporte</a></li>
                     </ul>
                 </footer>
             </main>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

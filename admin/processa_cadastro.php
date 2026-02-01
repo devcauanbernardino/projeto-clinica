@@ -1,4 +1,4 @@
-<?php
+<?php  
 
 require_once '../config/conexao.php';
 require_once '../models/Usuario.php';
@@ -10,24 +10,28 @@ $conexao = $database->conectar();
 
 $usuario = new Usuario($conexao);
 $medico = new Medico($conexao);
-// $paciente = new Paciente($conexao);
+$paciente = new Paciente($conexao);
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //usuario
+    $nome = trim($_POST['nome'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $senha = $_POST['senha'] ?? '';
+    $confirmar = $_POST['confirmar_senha'] ?? '';
+    $tipo = $_POST['tipo'] ?? '';
+    $telefone = $_POST['telefone'] ?? null;
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $confirmar = $_POST['confirmar_senha'];
-    $tipo = $_POST['tipo'];
+    //paciente
+    $cpf = $_POST['cpf'] ?? null;
+    $data_nascimento = $_POST['data'] ?? null;
 
     // medico
     $crm = $_POST['crm'] ?? null;
     $especialidade_id = $_POST['especialidade_id'] ?? null;
-    $telefone = $_POST['telefone'] ?? null;
 
     // validações básicas
-    if (empty($nome) || empty($email) || empty($senha) || empty($tipo)) {
+    if ($nome === '' || $email === '' || $senha === '' || $tipo === '' || $cpf === '' || $data_nascimento === '' || $telefone === '') {
         header("Location: cadastrar.php?cadastro=preenchacampos");
         exit;
     }
@@ -67,8 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $medico->cadastrarMedico($usuarioId, $crm, $especialidade_id, $telefone);
 
         } else {
-
-            //usuario->cadastrarPaciente($usuarioId);
+            $paciente->cadastrarPaciente($usuarioId, $cpf, $data_nascimento, $telefone);
         }
 
         $conexao->commit();
@@ -81,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $conexao->rollBack();
 
 
-        header("Location: login.php?cadastro=erro");
+        header("Location: cadastrar.php?cadastro=erro");
         //ATIVE ISSO PRA DEBUG (depois pode tirar)
         die($e->getMessage());
     }

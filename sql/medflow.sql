@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/01/2026 às 15:44
+-- Tempo de geração: 01/02/2026 às 18:01
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -49,6 +49,22 @@ CREATE TABLE `especialidades` (
   `nome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Despejando dados para a tabela `especialidades`
+--
+
+INSERT INTO `especialidades` (`id`, `nome`) VALUES
+(5, 'Cardiologia'),
+(6, 'Dermatologia'),
+(14, 'Endocrinologia'),
+(9, 'Ginecologia'),
+(10, 'Neurologia'),
+(12, 'Oftalmologia'),
+(7, 'Ortopedia'),
+(8, 'Pediatria'),
+(11, 'Psiquiatria'),
+(13, 'Urologia');
+
 -- --------------------------------------------------------
 
 --
@@ -70,12 +86,19 @@ CREATE TABLE `faturamentos` (
 
 CREATE TABLE `medicos` (
   `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
   `crm` varchar(20) NOT NULL,
   `especialidade_id` int(11) NOT NULL,
   `telefone` varchar(20) DEFAULT NULL,
-  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
+  `criado_em` timestamp NOT NULL DEFAULT current_timestamp(),
+  `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `medicos`
+--
+
+INSERT INTO `medicos` (`id`, `crm`, `especialidade_id`, `telefone`, `criado_em`, `usuario_id`) VALUES
+(8, '11', 10, '24998316442', '2026-01-30 04:26:08', 30);
 
 -- --------------------------------------------------------
 
@@ -85,13 +108,19 @@ CREATE TABLE `medicos` (
 
 CREATE TABLE `pacientes` (
   `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
   `cpf` varchar(14) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   `telefone` varchar(20) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
+  `criado_em` timestamp NOT NULL DEFAULT current_timestamp(),
+  `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `pacientes`
+--
+
+INSERT INTO `pacientes` (`id`, `cpf`, `data_nascimento`, `telefone`, `criado_em`, `usuario_id`) VALUES
+(2, '214234324234', '2003-02-09', '12343432', '2026-02-01 15:28:54', 34);
 
 -- --------------------------------------------------------
 
@@ -148,7 +177,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo`, `ativo`, `criado_em`) VALUES
-(13, 'Novo Teste Silva', 'testesilva@gmail.com', '$2y$10$IGcg8W6hp7o1qA/NuXIykekqRr9.VMPv/tvVonSrwpfJEE5QcXfpu', 'medico', 1, '2026-01-29 13:39:23');
+(13, 'Novo Teste Silva', 'testesilva@gmail.com', '$2y$10$IGcg8W6hp7o1qA/NuXIykekqRr9.VMPv/tvVonSrwpfJEE5QcXfpu', 'medico', 1, '2026-01-29 13:39:23'),
+(18, 'Cauan Bernardino Diogo', 'cauan@gmail.com', '$2y$10$RZmHnW/qWftN1V8IB/2ndOuLdXeGDuk0RFHJxw.noEbZIPoAwgfIS', 'paciente', 1, '2026-01-30 03:03:47'),
+(30, 'zealdo', 'zealdo@gmail.com', '$2y$10$rYg9540IRzSciSuSpumMz.8ZQphupTV6rAi8OasX2azso7pBj1BLW', 'medico', 1, '2026-01-30 04:26:08'),
+(34, 'joana', 'joana@gmail.com', '$2y$10$FyvP8Vq1BI9x6AELnOPA8eNCeh8fG97XNuphUkq1Zr3VrhlRsKrQ.', 'paciente', 1, '2026-02-01 15:28:54');
 
 --
 -- Índices para tabelas despejadas
@@ -167,7 +199,8 @@ ALTER TABLE `agendamentos`
 -- Índices de tabela `especialidades`
 --
 ALTER TABLE `especialidades`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_especialidade` (`nome`);
 
 --
 -- Índices de tabela `faturamentos`
@@ -182,14 +215,16 @@ ALTER TABLE `faturamentos`
 ALTER TABLE `medicos`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `crm` (`crm`),
-  ADD KEY `especialidade_id` (`especialidade_id`);
+  ADD KEY `fk_medico_usuario` (`usuario_id`),
+  ADD KEY `fk_especialidade` (`especialidade_id`);
 
 --
 -- Índices de tabela `pacientes`
 --
 ALTER TABLE `pacientes`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `cpf` (`cpf`);
+  ADD UNIQUE KEY `cpf` (`cpf`),
+  ADD KEY `fk_paciente_usuario` (`usuario_id`);
 
 --
 -- Índices de tabela `pagamentos`
@@ -225,7 +260,7 @@ ALTER TABLE `agendamentos`
 -- AUTO_INCREMENT de tabela `especialidades`
 --
 ALTER TABLE `especialidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `faturamentos`
@@ -237,13 +272,13 @@ ALTER TABLE `faturamentos`
 -- AUTO_INCREMENT de tabela `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `pagamentos`
@@ -261,7 +296,7 @@ ALTER TABLE `status_agendamento`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restrições para tabelas despejadas
@@ -285,7 +320,15 @@ ALTER TABLE `faturamentos`
 -- Restrições para tabelas `medicos`
 --
 ALTER TABLE `medicos`
+  ADD CONSTRAINT `fk_especialidade` FOREIGN KEY (`especialidade_id`) REFERENCES `especialidades` (`id`),
+  ADD CONSTRAINT `fk_medico_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `medicos_ibfk_1` FOREIGN KEY (`especialidade_id`) REFERENCES `especialidades` (`id`);
+
+--
+-- Restrições para tabelas `pacientes`
+--
+ALTER TABLE `pacientes`
+  ADD CONSTRAINT `fk_paciente_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 
 --
 -- Restrições para tabelas `pagamentos`

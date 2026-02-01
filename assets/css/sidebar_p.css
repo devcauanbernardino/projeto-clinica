@@ -1,0 +1,149 @@
+/* =======================
+   VARIÁVEIS
+======================= */
+:root {
+  --brand-primary: #13ecc8;
+  --brand-dark-teal: #0d2b26;
+  --bg-dark-soft: #1a1d20;
+  --card-dark: #212529;
+  --text-muted: #9db9b4;
+  --border-soft: rgba(255, 255, 255, 0.05);
+}
+
+/* =======================
+   BASE
+======================= */
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: var(--bg-dark-soft);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* =======================
+   SIDEBAR
+======================= */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--brand-dark-teal);
+  border-right: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column; 
+}
+
+/* LINKS DO MENU (escopado) */
+.sidebar .nav-link {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-size: 18px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+/* LINK ATIVO */
+.sidebar .nav-link.active {
+  background-color: rgba(19, 236, 200, 0.12);
+  color: var(--brand-primary);
+  border-left: 3px solid var(--brand-primary);
+}
+
+/* ÍCONES */
+.sidebar .material-symbols-outlined {
+  font-size: 20px;
+}
+
+/* =======================
+   CONTEÚDO PRINCIPAL
+======================= */
+.main-content {
+  margin-left: 260px;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* =======================
+   BOTÕES
+======================= */
+.btn-brand {
+  background-color: var(--brand-primary);
+  color: #0d2b26;
+  font-weight: 700;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-brand:hover {
+  background-color: #0fd9b8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(19, 236, 200, 0.35);
+}
+
+/* =======================
+   CARDS
+======================= */
+.card {
+  background-color: var(--card-dark);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  color: #ffffff;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.card-title {
+  font-weight: 700;
+}
+
+/* =======================
+   TEXTO
+======================= */
+.text-brand {
+  color: var(--brand-primary);
+}
+
+.text-soft {
+  color: var(--text-muted);
+}
+
+/* =======================
+   PROFILE (RODAPÉ SIDEBAR)
+======================= */
+.profile-section {
+  margin-top: auto;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid var(--border-soft);
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+}
+
+/* =======================
+   RESPONSIVO
+======================= */
+@media (max-width: 991.98px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}
