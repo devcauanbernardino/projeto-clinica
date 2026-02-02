@@ -24,15 +24,15 @@ $pagina_atual = basename($_SERVER['PHP_SELF']);
             <span class="material-symbols-outlined">calendar_month</span> Minhas Consultas
         </a>
 
-        <a class="nav-link mb-2" href="#" data-page="prontuario">
+        <a class="nav-link mb-2 <?= $pagina_atual === 'prontuario.php' ? 'active' : '' ?>" href="prontuario.php" data-page="prontuario">
             <span class="material-symbols-outlined">description</span> Prontuário
         </a>
 
-        <a class="nav-link mb-2" href="#" data-page="exames">
+        <a class="nav-link mb-2 <?= $pagina_atual === 'exames.php' ? 'active' : '' ?>" href="exames.php" data-page="exames">
             <span class="material-symbols-outlined">lab_panel</span> Exames
         </a>
 
-        <a class="nav-link" href="#" data-page="perfil">
+        <a class="nav-link <?= $pagina_atual === 'perfil.php' ? 'active' : '' ?>" href="perfil.php" data-page="perfil">
             <span class="material-symbols-outlined">person</span> Perfil
         </a>
     </nav>

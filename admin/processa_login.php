@@ -22,16 +22,16 @@ if (empty($email) || empty($senha)) {
 $database = new Conexao();
 $conexao = $database->conectar();
 
-$usuario = new Usuario($conexao);
+$usuarioModel  = new Usuario($conexao);
 
-$usuario = $usuario->login($email, $senha);
+$usuario = $usuarioModel->login($email, $senha);
 
 if ($usuario) {
     session_regenerate_id(true);
 
     $_SESSION['usuario_id'] = $usuario['id'];
     $_SESSION['usuario_nome'] = $usuario['nome'];
-    $_SESSION['usuario_tipo'] = $usuario['tipo'];
+    $_SESSION['tipo'] = $usuario['tipo'];
 
     if ($usuario['tipo'] === 'medico') {
         header("Location: dashboard.php");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/02/2026 às 18:01
+-- Tempo de geração: 02/02/2026 às 19:43
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -41,6 +41,23 @@ CREATE TABLE `agendamentos` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `consultas`
+--
+
+CREATE TABLE `consultas` (
+  `id` int(11) NOT NULL,
+  `paciente_id` int(11) NOT NULL,
+  `medico_id` int(11) NOT NULL,
+  `especialidade_id` int(11) NOT NULL,
+  `data_consulta` date NOT NULL,
+  `hora_consulta` time NOT NULL,
+  `status` enum('agendada','realizada','cancelada') DEFAULT 'agendada',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `especialidades`
 --
 
@@ -64,6 +81,23 @@ INSERT INTO `especialidades` (`id`, `nome`) VALUES
 (8, 'Pediatria'),
 (11, 'Psiquiatria'),
 (13, 'Urologia');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `exames`
+--
+
+CREATE TABLE `exames` (
+  `id` int(11) NOT NULL,
+  `paciente_id` int(11) NOT NULL,
+  `medico_id` int(11) DEFAULT NULL,
+  `nome_exame` varchar(100) NOT NULL,
+  `data_exame` date NOT NULL,
+  `status` enum('disponivel','em_analise') DEFAULT 'em_analise',
+  `arquivo` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -120,7 +154,8 @@ CREATE TABLE `pacientes` (
 --
 
 INSERT INTO `pacientes` (`id`, `cpf`, `data_nascimento`, `telefone`, `criado_em`, `usuario_id`) VALUES
-(2, '214234324234', '2003-02-09', '12343432', '2026-02-01 15:28:54', 34);
+(2, '214234324234', '2003-02-09', '12343432', '2026-02-01 15:28:54', 34),
+(3, '123442532', '5554-11-04', '24998316442', '2026-02-02 16:50:18', 35);
 
 -- --------------------------------------------------------
 
@@ -180,7 +215,8 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo`, `ativo`, `criado
 (13, 'Novo Teste Silva', 'testesilva@gmail.com', '$2y$10$IGcg8W6hp7o1qA/NuXIykekqRr9.VMPv/tvVonSrwpfJEE5QcXfpu', 'medico', 1, '2026-01-29 13:39:23'),
 (18, 'Cauan Bernardino Diogo', 'cauan@gmail.com', '$2y$10$RZmHnW/qWftN1V8IB/2ndOuLdXeGDuk0RFHJxw.noEbZIPoAwgfIS', 'paciente', 1, '2026-01-30 03:03:47'),
 (30, 'zealdo', 'zealdo@gmail.com', '$2y$10$rYg9540IRzSciSuSpumMz.8ZQphupTV6rAi8OasX2azso7pBj1BLW', 'medico', 1, '2026-01-30 04:26:08'),
-(34, 'joana', 'joana@gmail.com', '$2y$10$FyvP8Vq1BI9x6AELnOPA8eNCeh8fG97XNuphUkq1Zr3VrhlRsKrQ.', 'paciente', 1, '2026-02-01 15:28:54');
+(34, 'joana', 'joana@gmail.com', '$2y$10$FyvP8Vq1BI9x6AELnOPA8eNCeh8fG97XNuphUkq1Zr3VrhlRsKrQ.', 'paciente', 1, '2026-02-01 15:28:54'),
+(35, 'Jose', 'adm@teste.com', '$2y$10$FIBSS7FqHJOJ4rd2npBHL.U/MTWihbsfklIHEy3OHivAPxlytvxDK', 'paciente', 1, '2026-02-02 16:50:18');
 
 --
 -- Índices para tabelas despejadas
@@ -196,11 +232,28 @@ ALTER TABLE `agendamentos`
   ADD KEY `status_id` (`status_id`);
 
 --
+-- Índices de tabela `consultas`
+--
+ALTER TABLE `consultas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_consulta_paciente` (`paciente_id`),
+  ADD KEY `fk_consulta_medico` (`medico_id`),
+  ADD KEY `fk_consulta_especialidade` (`especialidade_id`);
+
+--
 -- Índices de tabela `especialidades`
 --
 ALTER TABLE `especialidades`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unique_especialidade` (`nome`);
+
+--
+-- Índices de tabela `exames`
+--
+ALTER TABLE `exames`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_exame_paciente` (`paciente_id`),
+  ADD KEY `fk_exame_medico` (`medico_id`);
 
 --
 -- Índices de tabela `faturamentos`
@@ -257,10 +310,22 @@ ALTER TABLE `agendamentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `consultas`
+--
+ALTER TABLE `consultas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `especialidades`
 --
 ALTER TABLE `especialidades`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de tabela `exames`
+--
+ALTER TABLE `exames`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `faturamentos`
@@ -278,7 +343,7 @@ ALTER TABLE `medicos`
 -- AUTO_INCREMENT de tabela `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `pagamentos`
@@ -296,7 +361,7 @@ ALTER TABLE `status_agendamento`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Restrições para tabelas despejadas
@@ -309,6 +374,21 @@ ALTER TABLE `agendamentos`
   ADD CONSTRAINT `agendamentos_ibfk_1` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`),
   ADD CONSTRAINT `agendamentos_ibfk_2` FOREIGN KEY (`medico_id`) REFERENCES `medicos` (`id`),
   ADD CONSTRAINT `agendamentos_ibfk_3` FOREIGN KEY (`status_id`) REFERENCES `status_agendamento` (`id`);
+
+--
+-- Restrições para tabelas `consultas`
+--
+ALTER TABLE `consultas`
+  ADD CONSTRAINT `fk_consulta_especialidade` FOREIGN KEY (`especialidade_id`) REFERENCES `especialidades` (`id`),
+  ADD CONSTRAINT `fk_consulta_medico` FOREIGN KEY (`medico_id`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `fk_consulta_paciente` FOREIGN KEY (`paciente_id`) REFERENCES `usuarios` (`id`);
+
+--
+-- Restrições para tabelas `exames`
+--
+ALTER TABLE `exames`
+  ADD CONSTRAINT `fk_exame_medico` FOREIGN KEY (`medico_id`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `fk_exame_paciente` FOREIGN KEY (`paciente_id`) REFERENCES `usuarios` (`id`);
 
 --
 -- Restrições para tabelas `faturamentos`
