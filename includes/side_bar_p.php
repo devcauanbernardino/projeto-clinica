@@ -48,7 +48,7 @@ $pagina_atual = basename($_SERVER['PHP_SELF']);
 
     <ul class="nav flex-column mt-3">
         <li class="nav-item">
-            <a class="nav-link text-danger" href="#">
+            <a class="nav-link text-danger" href="../admin/logout.php">
                 <span class="material-symbols-outlined">logout</span>
                 Sair
             </a>

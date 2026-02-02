@@ -1,10 +1,6 @@
 <?php
-session_start();
 
-if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_tipo'] !== 'paciente') {
-    header('Location: ../auth/login.php');
-    exit;
-}
+require_once '../auth/auth_paciente.php';
 
 require_once '../config/conexao.php';
 
