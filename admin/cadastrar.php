@@ -123,12 +123,12 @@ $especialidades = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                             placeholder="Repita a senha">
                                     </div>
 
-                                    <div class="col-md-3 mb-3">
+                                    <div class="mb-3">
                                         <label class="form-label small fw-bold">CRM</label>
-                                        <input type="text" name="crm" class="form-control">
+                                        <input type="text" name="crm" class="form-control" placeholder="CRM-SP 12345">
                                     </div>
 
-                                    <div class="col-md-9 mb-3">
+                                    <div class="mb-3">
                                         <label class="form-label small fw-bold">Especialidade</label>
                                         <select name="especialidade_id" class="form-control">
                                             <option value="">Selecione uma especialidade</option>
@@ -144,7 +144,7 @@ $especialidades = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                                     <div class="col-12 mb-3">
                                         <label class="form-label small fw-bold">Telefone</label>
-                                        <input type="text" name="telefone" class="form-control">
+                                        <input type="text" name="telefone" class="form-control" placeholder="(99) 9999-9999">
                                     </div>
 
                                 </div>

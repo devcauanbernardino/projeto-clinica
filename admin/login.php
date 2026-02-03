@@ -50,7 +50,7 @@
                     }
                 }
                 ?>
-                
+
                 <?php if (isset($_GET['erro']) && $_GET['erro'] === 'login_required'): ?>
                     <div class="alert alert-warning">
                         Você precisa estar logado para acessar essa página.
