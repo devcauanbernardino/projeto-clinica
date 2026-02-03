@@ -2,6 +2,8 @@
 require_once '../../auth/auth_paciente.php';
 require_once '../../config/conexao.php';
 
+$mostrarModal = isset($_GET['status']) && $_GET['status'] == 'sucesso';
+
 $paciente_id = $_SESSION['usuario_id'];
 
 $db = new Conexao();
@@ -36,7 +38,19 @@ $consultas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         rel="stylesheet" />
 
     <link rel="stylesheet" href="../../assets/css/sidebar_p.css" />
+    <link rel="stylesheet" href="../../assets/css/modal.css">
     <link rel="shortcut icon" href="../../assets/img/logo-sem-fundo.png" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(function () {
+            <?php if ($mostrarModal): ?>
+                const modal = new bootstrap.Modal(document.getElementById('modalSucesso'));
+                modal.show();
+            <?php endif; ?>
+        });
+    </script>
+
 </head>
 
 <body>
@@ -64,9 +78,6 @@ $consultas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <ul class="nav nav-tabs mb-4">
             <li class="nav-item">
                 <a class="nav-link active" href="#">Próximas Consultas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Histórico</a>
             </li>
         </ul>
 
@@ -170,6 +181,24 @@ $consultas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
     </main>
+    <!-- MODAL CONFIRMAÇÃO -->
+    <div class="modal fade" id="modalSucesso" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Consulta agendada</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Sua consulta foi agendada com sucesso
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-bs-dismiss="modal">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -1,0 +1,27 @@
+:root {
+  --bg-main: #1a1d20;
+  --bg-card: #212529;
+  --medflow-teal: #008080;
+  --medflow-teal-muted: #004d4d;
+  --medflow-teal-light: #009dae;
+  --medflow-lime: #a7d129;
+  --text-main: #e9ecef;
+  --text-muted: #adb5bd;
+  --sidebar-width: 260px;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+.modal-content {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--border-color);
+}
+
+.modal-title {
+  font-weight: 700;
+}

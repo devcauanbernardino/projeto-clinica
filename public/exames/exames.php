@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet" href="../assets/css/sidebar_p.css" />
-    <link rel="shortcut icon" href="../assets/img/logo-sem-fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/sidebar_p.css" />
+    <link rel="shortcut icon" href="../../assets/img/logo-sem-fundo.png" type="image/x-icon">
 </head>
 
 <body>
 
-    <?php require_once '../includes/side_bar_p.php'; ?>
+    <?php require_once '../../includes/side_bar_p.php'; ?>
 
     <main class="main-content px-4 py-4">
 

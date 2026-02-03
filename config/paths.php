@@ -15,6 +15,7 @@ define('ADMIN_URL', BASE_URL . 'admin/');
 // CONSULTAS (PACIENTE)
 // =========================
 define('CONSULTAS_URL', PUBLIC_URL . 'consultas/');
+define('EXAMES_URL', PUBLIC_URL . 'exames/');
 
 
 // =========================

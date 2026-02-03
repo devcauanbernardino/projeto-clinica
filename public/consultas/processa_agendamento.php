@@ -2,6 +2,8 @@
 require_once '../../auth/auth_paciente.php';
 require_once '../../config/conexao.php';
 
+session_start();
+
 $paciente_id = $_SESSION['usuario_id'];
 
 $medicoId = $_POST['medico_id'];
@@ -25,7 +27,7 @@ $stmt->execute([
 ]);
 
 
-header('Location: minhas_consultas.php?agendada=1');
+header('Location: minhas_consultas.php?status=sucesso');
 exit;
 
 ?>

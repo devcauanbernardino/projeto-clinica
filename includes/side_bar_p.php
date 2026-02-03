@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$nomePaciente = $_SESSION['usuario_nome'] ?? 'Paciente';
+$nomePaciente = $_SESSION['usuario_nome'] ?? 'paciente';
 
 
 
@@ -48,7 +48,7 @@ $nomePaciente = $_SESSION['usuario_nome'] ?? 'Paciente';
         </a>
 
         <a class="nav-link mb-2 <?= $pagina_atual === 'exames.php' ? 'active' : '' ?>"
-            href="<?= PUBLIC_URL ?>exames.php" data-page="exames">
+            href="<?= EXAMES_URL ?>exames.php" data-page="exames">
             <span class="material-symbols-outlined">lab_panel</span> Exames
         </a>
 
