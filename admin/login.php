@@ -50,19 +50,26 @@
                     }
                 }
                 ?>
+                
+                <?php if (isset($_GET['erro']) && $_GET['erro'] === 'login_required'): ?>
+                    <div class="alert alert-warning">
+                        Você precisa estar logado para acessar essa página.
+                    </div>
+                <?php endif; ?>
+
                 <div class="card bg-dark text-light login-card">
                     <div class="card-body p-4 p-md-5">
                         <form action="processa_login.php" method="post">
                             <div class="mb-4">
                                 <label class="form-label small fw-bold" for="email">E-mail</label>
                                 <input class="form-control" id="email" placeholder="exemplo@medflow.com.br" required=""
-                                    type="email" name="email"/>
+                                    type="email" name="email" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label small fw-bold" for="senha">Senha</label>
                                 <div class="input-group">
                                     <input class="form-control" id="senha" placeholder="Sua senha" required=""
-                                        type="password" name="senha"/>
+                                        type="password" name="senha" />
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-4">

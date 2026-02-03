@@ -1,0 +1,74 @@
+:root {
+  --brand-primary: #13ecc8;
+  --brand-primary-hover: #11d8b7;
+  --bg-color: #1a1d20;
+  --card-bg: #212529;
+  --input-bg: #2b3035;
+  --border-color: #3b544f;
+}
+
+.form-control {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+}
+.form-select {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+  background-color: var(--input-bg);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+  box-shadow: 0 0 0 0.25rem rgba(19, 236, 200, 0.25);
+}
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-primary-brand {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #10221f;
+  font-weight: 700;
+  padding: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-brand:hover {
+  background-color: var(--brand-primary-hover);
+  border-color: var(--brand-primary-hover);
+  color: #10221f;
+  transform: translateY(-1px);
+}
+
+.brand-logo {
+  color: var(--brand-primary);
+  width: 48px;
+  height: 48px;
+}
+
+.link-teal {
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-teal:hover {
+  color: var(--brand-primary-hover);
+  text-decoration: underline;
+}
+
+.form-check-input:checked {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+}
+
