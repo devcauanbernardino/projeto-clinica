@@ -18,8 +18,8 @@ session_start();
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
-    <!-- CSS do sistema -->
     <link rel="stylesheet" href="../assets/css/sidebar_p.css">
+    <link rel="stylesheet" href="../assets/css/inputs.css">
 
     <link rel="shortcut icon" href="../assets/img/logo-sem-fundo.png" type="image/x-icon">
 </head>
@@ -55,17 +55,17 @@ session_start();
 
                     <div class="col-md-6">
                         <label class="form-label">E-mail</label>
-                        <input type="email" class="form-control" disabled placeholder="email@exemplo.com">
+                        <input type="email" class="form-control" placeholder="email@exemplo.com">
                     </div>
 
                     <div class="col-md-4">
                         <label class="form-label">CPF</label>
-                        <input type="text" class="form-control" disabled placeholder="000.000.000-00">
+                        <input type="text" class="form-control" placeholder="000.000.000-00">
                     </div>
 
                     <div class="col-md-4">
                         <label class="form-label">Data de nascimento</label>
-                        <input type="date" class="form-control" disabled>
+                        <input type="date" class="form-control" >
                     </div>
 
                     <div class="col-md-4">

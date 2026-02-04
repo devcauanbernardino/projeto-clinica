@@ -32,6 +32,7 @@ $especialidades = $conexao->query("
 
     <link rel="stylesheet" href="../../assets/css/sidebar_p.css" />
     <link rel="shortcut icon" href="../../assets/img/logo-sem-fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/inputs.css" />
 </head>
 
 <body>

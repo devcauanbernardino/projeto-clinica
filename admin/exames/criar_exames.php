@@ -20,7 +20,7 @@ session_start();
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Novo Exame - MedFlow</title>
+    <title>Novo Exame | MedFlow</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +31,9 @@ session_start();
     <!-- CSS do sistema -->
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
     <link rel="stylesheet" href="../../assets/css/sidebar_ad.css">
+    <link rel="stylesheet" href="../../assets/css/inputs.css">
+
+    <link rel="shortcut icon" href="../../assets/img/logo-sem-fundo.png" type="image/x-icon">
 </head>
 
 <body class="d-flex">
