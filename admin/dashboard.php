@@ -25,7 +25,7 @@
         <header class="d-flex justify-content-between align-items-center mb-5">
             <div>
                 <h1 class="h3 fw-bold mb-1 text-white">Dashboard Administrativo</h1>
-                <p class="text-muted mb-0">Visão geral do desempenho da clínica esta semana.</p>
+                <p class="mb-0">Visão geral do desempenho da clínica esta semana.</p>
             </div>
             <div class="d-flex gap-3">
                 <button class="btn btn-dark border-secondary bg-opacity-10 d-flex align-items-center gap-2">
@@ -41,7 +41,7 @@
                 <div class="card card-kpi p-4 h-100 border-0 shadow-sm">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <span class="text-muted fw-bold small text-uppercase">Total Pacientes</span>
+                            <span class=" fw-bold small text-uppercase">Total Pacientes</span>
                             <h2 class="fw-bold mt-2 mb-0">1.284</h2>
                         </div>
                         <div class="p-2 rounded-3 bg-teal bg-opacity-10">
@@ -57,14 +57,14 @@
                 <div class="card card-kpi p-4 h-100 border-0 shadow-sm">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <span class="text-muted fw-bold small text-uppercase">Consultas Hoje</span>
+                            <span class="fw-bold small text-uppercase">Consultas Hoje</span>
                             <h2 class="fw-bold mt-2 mb-0">24</h2>
                         </div>
                         <div class="p-2 rounded-3 bg-teal bg-opacity-10">
                             <span class="material-symbols-outlined text-teal">calendar_today</span>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center gap-1 small text-muted">
+                    <div class="d-flex align-items-center gap-1 small">
                         <span class="fw-bold text-lime">16 restantes</span> • 8 concluídas
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="card card-kpi p-4 h-100 border-0 shadow-sm">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <span class="text-muted fw-bold small text-uppercase">Faturamento Semanal</span>
+                            <span class="fw-bold small text-uppercase">Faturamento Semanal</span>
                             <h2 class="fw-bold mt-2 mb-0">R$ 14.250</h2>
                         </div>
                         <div class="p-2 rounded-3 bg-lime bg-opacity-10">
@@ -127,14 +127,14 @@
                                             <span class="fw-semibold">Sarah Jenkins</span>
                                         </div>
                                     </td>
-                                    <td class="px-2 py-3 text-center text-muted fw-medium">09:00</td>
-                                    <td class="px-2 py-3 text-muted">Consulta de Rotina</td>
+                                    <td class="px-2 py-3 text-center fw-medium">09:00</td>
+                                    <td class="px-2 py-3">Consulta de Rotina</td>
                                     <td class="px-2 py-3 text-center">
                                         <span
                                             class="badge bg-success bg-opacity-25 text-success rounded-pill">Confirmado</span>
                                     </td>
                                     <td class="px-4 py-3 text-end">
-                                        <button class="btn btn-link text-muted p-0"><span
+                                        <button class="btn btn-link p-0"><span
                                                 class="material-symbols-outlined">more_horiz</span></button>
                                     </td>
                                 </tr>
@@ -146,14 +146,14 @@
                                             <span class="fw-semibold">James Wilson</span>
                                         </div>
                                     </td>
-                                    <td class="px-2 py-3 text-center text-muted fw-medium">10:30</td>
-                                    <td class="px-2 py-3 text-muted">Exame de Sangue</td>
+                                    <td class="px-2 py-3 text-center fw-medium">10:30</td>
+                                    <td class="px-2 py-3">Exame de Sangue</td>
                                     <td class="px-2 py-3 text-center">
                                         <span
                                             class="badge bg-warning bg-opacity-25 text-warning rounded-pill">Pendente</span>
                                     </td>
                                     <td class="px-4 py-3 text-end">
-                                        <button class="btn btn-link text-muted p-0"><span
+                                        <button class="btn btn-link  p-0"><span
                                                 class="material-symbols-outlined">more_horiz</span></button>
                                     </td>
                                 </tr>
@@ -165,14 +165,14 @@
                                             <span class="fw-semibold">Robert Fox</span>
                                         </div>
                                     </td>
-                                    <td class="px-2 py-3 text-center text-muted fw-medium">11:15</td>
-                                    <td class="px-2 py-3 text-muted">Retorno Cirúrgico</td>
+                                    <td class="px-2 py-3 text-center fw-medium">11:15</td>
+                                    <td class="px-2 py-3">Retorno Cirúrgico</td>
                                     <td class="px-2 py-3 text-center">
                                         <span
                                             class="badge bg-success bg-opacity-25 text-success rounded-pill">Confirmado</span>
                                     </td>
                                     <td class="px-4 py-3 text-end">
-                                        <button class="btn btn-link text-muted p-0"><span
+                                        <button class="btn btn-link p-0"><span
                                                 class="material-symbols-outlined">more_horiz</span></button>
                                     </td>
                                 </tr>
