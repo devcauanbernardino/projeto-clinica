@@ -1,3 +1,9 @@
+<?php 
+
+require_once __DIR__ . '/../auth/auth_medico.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
